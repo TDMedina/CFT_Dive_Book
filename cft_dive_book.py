@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
+"""CFT Dive Book Project.
+
 Created on Wed Oct 13 22:05:42 2021
 
-@author: Tyler
+@author: T.D. Medina
 """
 
 from collections import namedtuple
@@ -32,6 +33,7 @@ CONDITIONS_TEMPLATE = {
     "Surf": None,
     "Tide": None,
     "Current": None}
+
 
 class AnnualLog:
     def __init__(self, year, dives=None):
@@ -87,7 +89,6 @@ class DiveRecord:
             for i, instructor in enumerate(self.instructors, start=1):
                 fields.append(f"Instructor {i}:")
                 attrs.append(f"{instructor.name} ({instructor.cft_level})")
-
 
         fields += ["Location:", "Depth:", "Duration:", "Dive Type:"]
         attrs += [self.location, f"{self.max_depth}m", f"{self.duration}min",
@@ -152,5 +153,3 @@ class Diver:
             self.annual_logs[year] = AnnualLog(year)
         self.annual_logs[year].add_dive(dive)
         self.total_dives += 1
-
-
