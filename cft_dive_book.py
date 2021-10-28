@@ -25,8 +25,11 @@ DIVE_CODES = {
     "Tx": "Technical Diving",
     "W": "Wreck",
     }
+DIVE_CODES.update({code.lower(): name for code, name in DIVE_CODES.items()})
+DIVE_CODES.update({code.upper(): name for code, name in DIVE_CODES.items()})
 
 CFT_LEVELS = {}
+
 
 CONDITIONS_TEMPLATE = {
     "Surface": None,
